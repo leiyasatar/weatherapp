@@ -1,0 +1,48 @@
+h1 {
+  font-size: 30px;
+  position: relative;
+  top: -2px;
+  left: 20px;
+}
+
+h2 {
+  font-size: 15px;
+  position: relative;
+  top: -2px;
+  left: 20px;
+}
+
+p {
+  font-size: 50px;
+}
+
+.icon-forecast {
+  font-size: 60px;
+}
+
+.webpage {
+  max-width: 500px;
+  margin: 30px auto;
+  padding: 30px 60px;
+  border-radius: 12px;
+  background-color: beige;
+}
+
+tr {
+  position: relative;
+  bottom: -15px;
+  left: 20px;
+  font-size: 10px;
+}
+.form-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: grey;
+}
+.icon-sun {
+  font-size: 55px;
+  position: fixed;
+  left: 150px;
+}
