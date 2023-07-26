@@ -1,23 +1,37 @@
+body {
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-height: 100vh;
+  background-image: linear-gradient(
+    354deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(144, 177, 199, 1) 100%
+  );
+}
+
 h1 {
-  font-size: 30px;
-  position: relative;
-  top: -2px;
-  left: 20px;
+  font-size: 2.5rem; /* 30px */
+  margin-top: 0; /* Reset default margin */
+  text-align: center;
 }
 
 h2 {
-  font-size: 15px;
-  position: relative;
-  top: -2px;
-  left: 20px;
+  font-size: 1.5rem; /* 15px */
+  text-align: center;
 }
 
 p {
-  font-size: 50px;
+  font-size: 1.25rem; /* 20px */
+  text-align: center;
 }
 
 .icon-forecast {
-  font-size: 60px;
+  font-size: 3.75rem; /* 60px */
+  align-items: center;
 }
 
 .webpage {
@@ -25,24 +39,85 @@ p {
   margin: 30px auto;
   padding: 30px 60px;
   border-radius: 12px;
-  background-color: beige;
+  background-color: whitesmoke;
+  align-items: center;
 }
 
 tr {
-  position: relative;
-  bottom: -15px;
-  left: 20px;
-  font-size: 10px;
+  font-size: 0.625rem; /* 10px */
+  text-align: center;
 }
-.form-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: grey;
-}
+
 .icon-sun {
-  font-size: 55px;
-  position: fixed;
+  font-size: 3.4375rem; /* 55px */
   left: 150px;
+}
+.search-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+
+  /* Add color to the button */
+  .submit {
+    background-color: rgb(89, 89, 154);
+    color: black;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+  }
+
+  .submit:hover {
+    background-color: #0056b3;
+  }
+
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .top-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    display: flex;
+    height: 100vh;
+  }
+
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .bottom-container {
+    padding: 150px;
+    align-items: center;
+  }
+  #search-form {
+    width: 100%; /* Make the form take up the full width */
+    max-width: 400px; /* Set a maximum width for the form if needed */
+  }
+
+  #location-form {
+    width: 100%; /* Make the input take up the full width */
+    padding: 10px; /* Add some padding to the input field */
+    margin-bottom: 10px; /* Add a little space between the input and buttons */
+  }
+
+  #current-location-button {
+    width: 100%; /* Make the button take up the full width */
+    padding: 15px; /* Add some padding to the button */
+    margin-bottom: 10px; /* Add a little space between the button and the form */
+    align-items: center;
+  }
 }

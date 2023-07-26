@@ -9,8 +9,10 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
   <body>
-    <div class="webpage">
+    <div class="top-container">
       <div class="form-container">
+    <div class="webpage">
+    
         <form id="search-form">
           <div class="row">
             <div class="col-6">
@@ -23,7 +25,10 @@
                   placeholder="Enter city name"
                 />
               </div>
-              <button type="submit">Search</button>
+              <div class="search-button-container">
+                <button type="submit">Search</button> 
+              </br>
+              </div>
               <button type="button" id="current-location-button">
                 Current Location
               </button>
@@ -65,7 +70,7 @@
             </div>
           </div>
         </div>
-
+        <div class="bottom-container">
         <table class="table table-borderless">
           <thead>
             <tr>
