@@ -1,7 +1,7 @@
 body {
   align-items: center;
   height: 100vh;
-  margin: 0;
+  margin: auto 0;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -13,20 +13,17 @@ body {
   );
 }
 
-h1 {
-  font-size: 2.5rem; /* 30px */
-  margin-top: 0; /* Reset default margin */
-  text-align: center;
-}
-
+h1,
 h2 {
-  font-size: 1.5rem; /* 15px */
-  text-align: center;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  margin-left: 115px;
+  font-weight: 20px;
 }
 
 p {
-  font-size: 1.25rem; /* 20px */
-  text-align: center;
+  font-size: 15px;
+  text-align: left;
 }
 
 .icon-forecast {
@@ -36,11 +33,28 @@ p {
 
 .webpage {
   max-width: 500px;
-  margin: 30px auto;
+  margin: 0 auto;
   padding: 30px 60px;
   border-radius: 12px;
   background-color: whitesmoke;
   align-items: center;
+  position: relative;
+  top: 5px;
+  left: 80px;
+}
+
+.center-container {
+  text-align: center;
+  padding-top: 50px;
+  border: 1px solid #dadde1;
+  padding: 15px;
+  margin: 0 center;
+  border-radius: 10px;
+  max-width: 1000px;
+  position: relative;
+  top: 10px;
+  left: 115px;
+  color: aliceblue;
 }
 
 tr {
@@ -57,6 +71,7 @@ tr {
   justify-content: center;
   align-items: center;
   margin-top: 10px;
+  color: aliceblue;
 
   /* Add color to the button */
   .submit {
@@ -77,6 +92,14 @@ tr {
     flex-direction: column;
     align-items: center;
     text-align: center;
+    border: 1px solid #dadde1;
+    padding: 15px;
+    margin: 20px auto;
+    border-radius: 10px;
+    max-width: 600px;
+    position: relative;
+    top: -10px;
+    left: 115px;
   }
 
   .top-container {
@@ -88,20 +111,25 @@ tr {
     padding: 20px;
     display: flex;
     height: 100vh;
-  }
-
-  .form-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    max-width: 400px;
-    margin: 0 auto;
+    border: 1px solid #dadde1;
+    padding: 15px;
+    margin: 20px auto;
+    border-radius: 10px;
+    max-width: 600px;
+    position: relative;
+    top: -30px;
+    left: 115px;
   }
 
   .bottom-container {
     padding: 150px;
     align-items: center;
+    border: 1px solid #dadde1;
+    padding: 15px;
+    margin: 20px auto;
+    border-radius: 10px;
+    max-width: 600px;
+    position: relative;
   }
   #search-form {
     width: 100%; /* Make the form take up the full width */
@@ -120,4 +148,25 @@ tr {
     margin-bottom: 10px; /* Add a little space between the button and the form */
     align-items: center;
   }
+}
+.form-control {
+  text-align: center;
+  padding-top: 50px;
+  border: 1px solid #dadde1;
+  padding: 15px;
+  margin: 50px center;
+  border-radius: 10px;
+  max-width: 1000px;
+  position: relative;
+  top: 10px;
+  left: 115px;
+}
+.sun-icon-top {
+  display: block;
+  margin: -60px auto;
+  color: rgb(130, 166, 170, 0.7);
+  position: relative;
+  top: 69px;
+  left: 23px;
+  font-size: 96px;
 }

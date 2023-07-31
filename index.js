@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
   let now = new Date();
-
   let tDate = document.querySelector("#date");
   let tTime = document.querySelector("#time");
   let date = now.getDate();
@@ -108,25 +107,94 @@ function getWeatherData(city) {
     .catch(function (error) {
       console.log(error);
     });
-}
 
-function getWeatherDataByCoordinates(latitude, longitude) {
-  const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=516b6aa5f906aa3ba81d879c2d6c43cf`;
-  axios
-    .get(apiUrl)
-    .then(function (response) {
-      const city = response.data.name;
-      const temperature = response.data.main.temp;
-      const cityElement = document.querySelector("#city");
-      const temperatureElement = document.querySelector("#temperature");
+  function updateWeatherInfo(weatherData) {
+    const temperatureElement = document.getElementById("temperature");
+    const windSpeedElement = document.getElementById("wind-speed");
+    const weatherDescriptionElement = document.getElementById(
+      "weather-description"
+    );
+    const weatherIconElement = document.getElementById("weather-icon");
 
-      cityElement.innerHTML = city;
-      temperatureElement.innerHTML = `${temperature} °C`;
-    })
-    .catch(function (error) {
-      console.log(error);
+    const temperature = weatherData.main.temp;
+    const roundedTemperature = roundTemperature(temperature);
+    temperatureElement.innerHTML = `${roundedTemperature} °C`;
+
+    const windSpeed = weatherData.wind.speed;
+    windSpeedElement.innerHTML = `Wind Speed: ${windSpeed} m/s`;
+
+    const weatherDescription = weatherData.weather[0].description;
+    weatherDescriptionElement.innerHTML = `Weather Description: ${weatherDescription}`;
+
+    const weatherIconCode = weatherData.weather[0].icon;
+    const weatherIconUrl = `http://openweathermap.org/img/wn/${weatherIconCode}.png`;
+    weatherIconElement.innerHTML = `Weather Icon: <img src="${weatherIconUrl}" alt="${weatherDescription}">`;
+  }
+
+  function getWeatherDataByCoordinates(latitude, longitude) {
+    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=516b6aa5f906aa3ba81d879c2d6c43cf`;
+    axios
+      .get(apiUrl)
+      .then(function (response) {
+        const city = response.data.name;
+        const temperature = response.data.main.temp;
+        const cityElement = document.querySelector("#city");
+        const temperatureElement = document.querySelector("#temperature");
+        cityElement.innerHTML = city;
+        temperatureElement.innerHTML = `${temperature}°C`;
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+  function roundTemperature(temperature) {
+    return Math.round(temperature);
+  }
+  document.addEventListener("DOMContentLoaded", () => {
+    const searchForm = document.getElementById("search-form");
+    const locationForm = document.getElementById("location-form");
+    const cityElement = document.getElementById("city");
+    const currentLocationButton = document.getElementById(
+      "current-location-button"
+    );
+
+    // Function to update the city name in the <h1> element
+    function updateCityName(cityName) {
+      cityElement.textContent = cityName;
+    }
+
+    // Event listener for form submission
+    searchForm.addEventListener("submit", (event) => {
+      event.preventDefault(); // Prevent page reload
+
+      const city = locationForm.value;
+      // Replace "YOUR_API_KEY" with your actual API key from OpenWeatherMap
+      const apiKey = "516b6aa5f906aa3ba81d879c2d6c43cf";
+      const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
+
+      // Make an API call to get weather data
+      fetch(apiUrl)
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.cod === 200) {
+            updateCityName(data.name);
+            // You can also update other weather-related elements here
+          } else {
+            updateCityName("City Not Found");
+            // Handle error cases here
+          }
+        })
+        .catch((error) => {
+          console.error("Error fetching data:", error);
+          updateCityName("Error");
+          // Handle error cases here
+        });
     });
-}
-function roundTemperature(temperature) {
-  return Math.round(temperature);
+
+    // Event listener for "Current Location" button click
+    currentLocationButton.addEventListener("click", () => {
+      updateCityName("Your Current Location");
+      // Add code to get the weather data for the user's current location if needed
+    });
+  });
 }
