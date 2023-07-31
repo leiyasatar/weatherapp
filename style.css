@@ -13,19 +13,6 @@ body {
   );
 }
 
-h1,
-h2 {
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
-  margin-left: 115px;
-  font-weight: 20px;
-}
-
-p {
-  font-size: 15px;
-  text-align: left;
-}
-
 .icon-forecast {
   font-size: 3.75rem; /* 60px */
   align-items: center;
@@ -174,4 +161,29 @@ ul {
   list-style: none;
   padding: 0;
   margin: 0;
+}
+.weather-info-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.weather-info-container h1,
+.weather-info-container h2,
+.weather-info-container ul {
+  flex-basis: 10%;
+}
+
+/* You can adjust the width of each element as needed */
+.weather-info-container h1,
+.weather-info-container h2 {
+  flex-basis: 60%;
+}
+
+/* Styling the list items */
+#weather-info-list li {
+  list-style: none;
+}
+.city,
+.temperature {
+  font-size: 10px;
 }
