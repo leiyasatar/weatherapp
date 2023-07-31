@@ -170,3 +170,8 @@ tr {
   left: 23px;
   font-size: 96px;
 }
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}

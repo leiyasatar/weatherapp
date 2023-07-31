@@ -146,3 +146,9 @@ function updateTemperatureUnit(unit) {
   }
   temperatureElement.innerHTML = `${temperature.toFixed(2)} ${unit}`;
 }
+const defaultCity = "Johannesburg";
+
+getWeatherData(defaultCity);
+// Set the default city name to "Johannesburg"
+const cityElement = document.getElementById("city");
+cityElement.innerHTML = "Johannesburg";
