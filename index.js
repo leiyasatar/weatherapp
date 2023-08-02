@@ -120,11 +120,11 @@ const celsiusButton = document.getElementById("c-temp");
 const fahrenheitButton = document.getElementById("f-temp");
 
 celsiusButton.addEventListener("click", function () {
-  updateTemperatureUnit("Celsius");
+  updateTemperatureUnit("°C");
 });
 
 fahrenheitButton.addEventListener("click", function () {
-  updateTemperatureUnit("Fahrenheit");
+  updateTemperatureUnit("°F");
 });
 
 function searching(event) {

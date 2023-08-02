@@ -6,13 +6,7 @@ body {
   flex-direction: column;
   justify-content: flex-start;
   min-height: 100vh;
-  background-image: linear-gradient(
-    354deg,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(144, 177, 199, 1) 100%
-  );
 }
-
 .icon-forecast {
   font-size: 3.75rem; /* 60px */
   align-items: center;
@@ -21,13 +15,11 @@ body {
 .webpage {
   max-width: 500px;
   margin: 0 auto;
-  padding: 30px 60px;
+  padding: 10px 30px;
   border-radius: 12px;
-  background-color: whitesmoke;
-  align-items: center;
+  background-color: rgb(217, 217, 217);
+  margin: -980px auto 0;
   position: relative;
-  top: 5px;
-  left: 80px;
 }
 
 .center-container {
@@ -44,7 +36,7 @@ body {
   color: aliceblue;
 }
 
-tr {
+.tr {
   font-size: 0.625rem; /* 10px */
   text-align: center;
 }
@@ -96,16 +88,14 @@ tr {
     align-items: center;
     justify-content: center;
     padding: 20px;
-    display: flex;
-    height: 100vh;
     border: 1px solid #dadde1;
-    padding: 15px;
     margin: 20px auto;
     border-radius: 10px;
     max-width: 600px;
     position: relative;
-    top: -30px;
+
     left: 115px;
+    margin-bottom: 10px;
   }
 
   .bottom-container {
@@ -117,6 +107,7 @@ tr {
     border-radius: 10px;
     max-width: 600px;
     position: relative;
+    top: 10px;
   }
   #search-form {
     width: 100%; /* Make the form take up the full width */
@@ -157,33 +148,94 @@ tr {
   left: 23px;
   font-size: 96px;
 }
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
 .weather-info-container {
   display: flex;
-  flex-wrap: wrap;
+  align-items: center;
 }
 
-.weather-info-container h1,
-.weather-info-container h2,
-.weather-info-container ul {
-  flex-basis: 10%;
+/* Add spacing between weather info items */
+
+.weather-info-container {
+  margin-top: 20px;
 }
 
-/* You can adjust the width of each element as needed */
-.weather-info-container h1,
-.weather-info-container h2 {
-  flex-basis: 60%;
+#weather-info-list {
+  margin-top: 10px;
 }
 
-/* Styling the list items */
-#weather-info-list li {
+/* Adjust font size and spacing for the weather description */
+#weather-description {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+/* Add spacing between the city name and weather info container */
+#city {
+  font-size: 30px;
+  margin-bottom: 10px;
+  display: block;
+}
+#temperature {
+  font-size: 20px;
+  display: block;
+}
+/* Adjust font size and spacing for the weather description */
+#weather-description {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+/* Add some spacing between the date, time, and search form */
+#date,
+#time,
+#search-form {
+  margin-bottom: 10px;
+}
+
+/* Add spacing between the temperature buttons and weather info */
+#temp-button {
+  margin-top: 10px;
+}
+
+/* Adjust spacing for the bottom container */
+.bottom-container {
+  margin-top: 10px;
+}
+
+ul {
   list-style: none;
+  font-size: 15px;
 }
-.city,
-.temperature {
-  font-size: 10px;
+#weather-description {
+  font-size: 15px;
+  margin-bottom: 8px;
+}
+@keyframes animatedBackground {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 100% 0;
+  }
+}
+
+#animate-area {
+  margin: 0px;
+  padding: 0px;
+  width: 1000%;
+  height: 1000px;
+  background-image: url(https://davidwalsh.name/demo/bg-clouds.png);
+  background-position: 10px 10px;
+  background-repeat: repeat-x;
+  animation: animatedBackground 43s linear infinite;
+}
+.conversions {
+  text-align: left;
+  padding-top: 50px;
+  padding: 15px;
+  margin: 0 center;
+  max-width: 1000px;
+  position: relative;
+  top: 10px;
+  left: 115px;
 }
