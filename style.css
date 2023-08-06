@@ -239,3 +239,9 @@ ul {
   top: 10px;
   left: 115px;
 }
+a {
+  text-align: center;
+}
+.weather-forecast {
+  text-align: center;
+}
