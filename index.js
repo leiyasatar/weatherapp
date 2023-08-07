@@ -75,7 +75,7 @@ function handleGeoError(error) {
 }
 
 function getWeatherData(city) {
-  const apiKey = "516b6aa5f906aa3ba81d879c2d6c43cf"; // Your API key from OpenWeatherMap
+  const apiKey = "49b631c45785fe73d2a88477803dea22"; // Your API key from OpenWeatherMap
   const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
 
   axios
@@ -110,6 +110,8 @@ function updateWeatherInfo(weatherData) {
   const weatherIconCode = weatherData.weather[0].icon;
   const weatherIconUrl = `http://openweathermap.org/img/wn/${weatherIconCode}.png`;
   weatherIconElement.innerHTML = `Weather Icon: <img src="${weatherIconUrl}" alt="${weatherDescription}">`;
+
+  getForecast(weatherData.coord);
 }
 
 function roundTemperature(temperature) {
@@ -152,6 +154,33 @@ getWeatherData(defaultCity);
 // Set the default city name to "Johannesburg"
 const cityElement = document.getElementById("city");
 cityElement.innerHTML = "Johannesburg";
+
+function getForecast(coordinates) {
+  let lat = coordinates.lat;
+  let lon = coordinates.lon;
+
+  const apiKey = "49b631c45785fe73d2a88477803dea22"; // Your API key from OpenWeatherMap
+  const apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
+
+  axios.get(apiUrl).then(displayForecast);
+}
+
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+
+  return days[day];
+}
+
 function displayForecast(response) {
   let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
@@ -169,7 +198,7 @@ function displayForecast(response) {
             forecastDay.weather[0].icon
           }@2x.png"
           alt=""
-          width="50"
+          width="30"
         />
         <div class="weather-forecast-temperatures">
           <span class="weather-forecast-temperature-max">${Math.round(
